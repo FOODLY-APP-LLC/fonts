@@ -1,6 +1,6 @@
 # FOODLY Font CDN
 
-Production-ready self-hosted font CDN for serving FOODLY brand fonts and static design assets from `https://fonts.foodly.live`.
+Production-ready self-hosted font CDN for serving FOODLY brand fonts and static design assets from `https://fonts.foodlyapp.ge`.
 
 ## Project Structure
 
@@ -80,12 +80,12 @@ This project works best on Laravel Forge as a plain static site hosted by Nginx.
 
 ### Recommended Site Setup
 
-1. Create a new site in Forge: `fonts.foodly.live`
+1. Create a new site in Forge: `fonts.foodlyapp.ge`
 2. Select your AWS server
 3. Use the web directory as:
 
    ```text
-   /home/forge/fonts.foodly.live/public
+   /home/forge/fonts.on-forge.com/public
    ```
 
 4. Connect the site to this GitHub repository:
@@ -94,7 +94,7 @@ This project works best on Laravel Forge as a plain static site hosted by Nginx.
    https://github.com/FOODLY-APP-LLC/fonts.git
    ```
 
-5. Enable SSL in Forge for `fonts.foodly.live`
+5. Enable SSL in Forge for `fonts.foodlyapp.ge`
 6. In Cloudflare, keep SSL mode on `Full (strict)`
 
 ### Nginx Root
@@ -103,7 +103,7 @@ In Forge, the site should serve files directly from the repository `public/` fol
 That means the effective document root should be:
 
 ```text
-/home/forge/fonts.foodly.live/public
+/home/forge/fonts.on-forge.com/public
 ```
 
 ### Deploy Script
@@ -111,7 +111,7 @@ That means the effective document root should be:
 A minimal Forge deploy script can be:
 
 ```bash
-cd /home/forge/fonts.foodly.live
+cd /home/forge/fonts.on-forge.com
 
 git pull origin main
 
@@ -123,7 +123,7 @@ sudo service nginx reload
 Because this is a static project, Composer is not required. If you want a cleaner deploy script, use this instead:
 
 ```bash
-cd /home/forge/fonts.foodly.live
+cd /home/forge/fonts.on-forge.com
 
 git pull origin main
 
@@ -143,9 +143,9 @@ sudo service nginx reload
 After deployment, verify:
 
 ```bash
-curl -I https://fonts.foodly.live/v1/fonts.css
-curl -I https://fonts.foodly.live/v1/fonts/FiraGO/Roman/FiraGO-Regular.woff2
-curl -I https://fonts.foodly.live/v1/fonts/DejaVu-Sans/dejavu-sans-bold.woff2
+curl -I https://fonts.foodlyapp.ge/v1/fonts.css
+curl -I https://fonts.foodlyapp.ge/v1/fonts/FiraGO/Roman/FiraGO-Regular.woff2
+curl -I https://fonts.foodlyapp.ge/v1/fonts/DejaVu-Sans/dejavu-sans-bold.woff2
 ```
 
 Expected response characteristics:
@@ -158,7 +158,7 @@ Expected response characteristics:
 
 ### DNS
 
-- Add an `A` or `AAAA` record for `fonts.foodly.live` pointing to the origin server.
+- Add an `A` or `AAAA` record for `fonts.foodlyapp.ge` pointing to the origin server.
 - Enable the orange cloud proxy.
 
 ### SSL/TLS
@@ -169,7 +169,7 @@ Expected response characteristics:
 
 ### Cache Rules
 
-Create a rule targeting `fonts.foodly.live/*`:
+Create a rule targeting `fonts.foodlyapp.ge/*`:
 
 - Cache eligibility: `Eligible for cache`
 - Edge TTL: `Respect existing headers`
@@ -177,7 +177,7 @@ Create a rule targeting `fonts.foodly.live/*`:
 
 Optional stronger rule for versioned assets:
 
-- Expression: hostname equals `fonts.foodly.live` and URI path matches `^/v[0-9]+/.*`
+- Expression: hostname equals `fonts.foodlyapp.ge` and URI path matches `^/v[0-9]+/.*`
 - Cache level: `Cache Everything`
 - Edge TTL: `1 month` or `Respect existing headers`
 
@@ -186,9 +186,9 @@ Optional stronger rule for versioned assets:
 ### Generic HTML
 
 ```html
-<link rel="preconnect" href="https://fonts.foodly.live" crossorigin>
-<link rel="preload" href="https://fonts.foodly.live/v1/fonts/FiraGO/Roman/FiraGO-Regular.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="https://fonts.foodly.live/v1/fonts.css">
+<link rel="preconnect" href="https://fonts.foodlyapp.ge" crossorigin>
+<link rel="preload" href="https://fonts.foodlyapp.ge/v1/fonts/FiraGO/Roman/FiraGO-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="https://fonts.foodlyapp.ge/v1/fonts.css">
 ```
 
 ### Basic CSS Usage
@@ -224,9 +224,9 @@ h3 {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.foodly.live" crossorigin>
-    <link rel="preload" href="https://fonts.foodly.live/v1/fonts/FiraGO/Roman/FiraGO-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="https://fonts.foodly.live/v1/fonts.css">
+    <link rel="preconnect" href="https://fonts.foodlyapp.ge" crossorigin>
+    <link rel="preload" href="https://fonts.foodlyapp.ge/v1/fonts/FiraGO/Roman/FiraGO-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="https://fonts.foodlyapp.ge/v1/fonts.css">
     <style>
         body { font-family: 'FiraGO', sans-serif; }
         .hero-title { font-weight: 700; }
@@ -249,19 +249,19 @@ import React from 'react';
 export function App() {
     return (
         <>
-            <link rel="preconnect" href="https://fonts.foodly.live" crossOrigin="anonymous" />
+            <link rel="preconnect" href="https://fonts.foodlyapp.ge" crossOrigin="anonymous" />
             <link
                 rel="preload"
-                href="https://fonts.foodly.live/v1/fonts/FiraGO/Roman/FiraGO-Regular.woff2"
+                href="https://fonts.foodlyapp.ge/v1/fonts/FiraGO/Roman/FiraGO-Regular.woff2"
                 as="font"
                 type="font/woff2"
                 crossOrigin="anonymous"
             />
-            <link rel="stylesheet" href="https://fonts.foodly.live/v1/fonts.css" />
+            <link rel="stylesheet" href="https://fonts.foodlyapp.ge/v1/fonts.css" />
 
             <main style={{ fontFamily: "'FiraGO', sans-serif" }}>
                 <h1 style={{ fontWeight: 700 }}>Foodly App</h1>
-                <p>Shared brand font loaded from fonts.foodly.live.</p>
+                <p>Shared brand font loaded from fonts.foodlyapp.ge.</p>
             </main>
         </>
     );
@@ -272,9 +272,9 @@ export function App() {
 
 ```blade
 <head>
-    <link rel="preconnect" href="https://fonts.foodly.live" crossorigin>
-    <link rel="preload" href="https://fonts.foodly.live/v1/fonts/FiraGO/Roman/FiraGO-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="https://fonts.foodly.live/v1/fonts.css">
+    <link rel="preconnect" href="https://fonts.foodlyapp.ge" crossorigin>
+    <link rel="preload" href="https://fonts.foodlyapp.ge/v1/fonts/FiraGO/Roman/FiraGO-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="https://fonts.foodlyapp.ge/v1/fonts.css">
 </head>
 <body style="font-family: 'FiraGO', sans-serif;">
     <h1 style="font-weight: 700;">Foodly Blade App</h1>
@@ -326,5 +326,7 @@ This layout is ready for:
 - Icon fonts or sprite sheets
 - SVG logos and UI assets under `public/assets/`
 - Manifest-driven CSS generation from a build pipeline
+
+
 
 
