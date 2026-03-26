@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FOODLY Fonts CDN</title>
+    <meta name="description" content="Centralized static font and asset delivery for FOODLY applications.">
+    <style>
+        :root {
+            color-scheme: light;
+            --bg: #f5efe5;
+            --panel: #fffaf2;
+            --text: #1f1a17;
+            --muted: #6f655f;
+            --accent: #cb5a2e;
+            --border: rgba(31, 26, 23, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            padding: 32px;
+            background:
+                radial-gradient(circle at top left, rgba(203, 90, 46, 0.18), transparent 28%),
+                linear-gradient(180deg, #f8f3ea 0%, var(--bg) 100%);
+            color: var(--text);
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        main {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 32px;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            background: var(--panel);
+            box-shadow: 0 24px 80px rgba(31, 26, 23, 0.08);
+        }
+
+        h1 {
+            margin: 0 0 12px;
+            font-size: clamp(2rem, 4vw, 3.25rem);
+        }
+
+        p {
+            margin: 0 0 16px;
+            line-height: 1.6;
+            color: var(--muted);
+        }
+
+        code {
+            padding: 2px 6px;
+            border-radius: 6px;
+            background: rgba(31, 26, 23, 0.06);
+            color: var(--text);
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>FOODLY Fonts CDN</h1>
+        <p>This origin serves versioned font assets and related brand resources for FOODLY applications.</p>
+        <p>Primary stylesheet: <code>/v1/fonts.css</code></p>
+        <p>Deploy real font files into the matching version folder before production traffic is enabled.</p>
+    </main>
+</body>
+</html>
