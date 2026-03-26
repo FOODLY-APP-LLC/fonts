@@ -74,52 +74,86 @@ The current `v1` release exposes these families via [public/v1/fonts.css](E:\dev
 4. Do not overwrite released assets inside an existing version folder.
 5. For a new release, create `public/v2/`, copy only the assets you want to publish, and generate a new `fonts.css` there.
 
-## Ubuntu Deployment
+## Forge Setup
 
-1. Install Nginx:
+This project works best on Laravel Forge as a plain static site hosted by Nginx.
 
-   ```bash
-   sudo apt update
-   sudo apt install -y nginx
+### Recommended Site Setup
+
+1. Create a new site in Forge: `fonts.foodly.live`
+2. Select your AWS server
+3. Use the web directory as:
+
+   ```text
+   /home/forge/fonts.foodly.live/public
    ```
 
-2. Create the application root:
+4. Connect the site to this GitHub repository:
 
-   ```bash
-   sudo mkdir -p /var/www/fonts.foodly.live
-   sudo chown -R www-data:www-data /var/www/fonts.foodly.live
+   ```text
+   https://github.com/FOODLY-APP-LLC/fonts.git
    ```
 
-3. Copy the project files:
+5. Enable SSL in Forge for `fonts.foodly.live`
+6. In Cloudflare, keep SSL mode on `Full (strict)`
 
-   ```bash
-   sudo rsync -av ./public/ /var/www/fonts.foodly.live/
-   sudo cp ./nginx/nginx.conf /etc/nginx/sites-available/fonts.foodly.live.conf
-   ```
+### Nginx Root
 
-4. Enable the site:
+In Forge, the site should serve files directly from the repository `public/` folder.
+That means the effective document root should be:
 
-   ```bash
-   sudo ln -s /etc/nginx/sites-available/fonts.foodly.live.conf /etc/nginx/sites-enabled/fonts.foodly.live.conf
-   sudo nginx -t
-   sudo systemctl reload nginx
-   ```
+```text
+/home/forge/fonts.foodly.live/public
+```
 
-5. Enable TLS:
+### Deploy Script
 
-   ```bash
-   sudo apt install -y certbot python3-certbot-nginx
-   sudo certbot --nginx -d fonts.foodly.live
-   ```
+A minimal Forge deploy script can be:
 
-6. Verify:
+```bash
+cd /home/forge/fonts.foodly.live
 
-   ```bash
-   curl -I https://fonts.foodly.live/v1/fonts.css
-   curl -I https://fonts.foodly.live/v1/fonts/FiraGO/Roman/FiraGO-Regular.woff2
-   curl -I https://fonts.foodly.live/v1/fonts/DejaVu-Sans/dejavu-sans-bold.woff2
-   ```
+git pull origin main
 
+$FORGE_COMPOSER install --no-dev --no-interaction --prefer-dist || true
+
+sudo service nginx reload
+```
+
+Because this is a static project, Composer is not required. If you want a cleaner deploy script, use this instead:
+
+```bash
+cd /home/forge/fonts.foodly.live
+
+git pull origin main
+
+sudo service nginx reload
+```
+
+### Custom Nginx Notes
+
+- Use the rules from [nginx/nginx.conf](E:\development\fonts.foodly.live\nginx\nginx.conf)
+- Make sure the site root points to the `public/` directory
+- Keep CORS enabled for font files
+- Keep immutable cache headers on `/v1/...` assets
+- Allow only `GET` and `HEAD`
+
+### Post-Deploy Checks
+
+After deployment, verify:
+
+```bash
+curl -I https://fonts.foodly.live/v1/fonts.css
+curl -I https://fonts.foodly.live/v1/fonts/FiraGO/Roman/FiraGO-Regular.woff2
+curl -I https://fonts.foodly.live/v1/fonts/DejaVu-Sans/dejavu-sans-bold.woff2
+```
+
+Expected response characteristics:
+
+- `200 OK`
+- `Access-Control-Allow-Origin: *`
+- `Cache-Control: public, max-age=31536000, immutable`
+- correct `content-type` for `woff2` and `woff`
 ## Cloudflare Setup
 
 ### DNS
@@ -157,14 +191,102 @@ Optional stronger rule for versioned assets:
 <link rel="stylesheet" href="https://fonts.foodly.live/v1/fonts.css">
 ```
 
+### Basic CSS Usage
+
+```css
+body {
+    font-family: 'FiraGO', sans-serif;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'FiraGO', sans-serif;
+    font-weight: 700;
+}
+
+.ui-note {
+    font-family: 'DejaVu Sans', sans-serif;
+    font-weight: 400;
+}
+
+.campaign-title {
+    font-family: 'Dachi the Lynx', cursive;
+    font-weight: 400;
+}
+```
+
+### Full HTML Page Example
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.foodly.live" crossorigin>
+    <link rel="preload" href="https://fonts.foodly.live/v1/fonts/FiraGO/Roman/FiraGO-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="https://fonts.foodly.live/v1/fonts.css">
+    <style>
+        body { font-family: 'FiraGO', sans-serif; }
+        .hero-title { font-weight: 700; }
+        .badge { font-family: 'Dachi the Lynx', cursive; }
+    </style>
+</head>
+<body>
+    <h1 class="hero-title">Foodly Fonts CDN</h1>
+    <p>Primary UI text uses FiraGO.</p>
+    <span class="badge">Special Offer</span>
+</body>
+</html>
+```
+
 ### React
 
-Import the stylesheet once in your app shell, or include it in `public/index.html`.
-Use `font-family: 'FiraGO', sans-serif;` for the main UI and preload only the exact font files used above the fold.
+```tsx
+import React from 'react';
+
+export function App() {
+    return (
+        <>
+            <link rel="preconnect" href="https://fonts.foodly.live" crossOrigin="anonymous" />
+            <link
+                rel="preload"
+                href="https://fonts.foodly.live/v1/fonts/FiraGO/Roman/FiraGO-Regular.woff2"
+                as="font"
+                type="font/woff2"
+                crossOrigin="anonymous"
+            />
+            <link rel="stylesheet" href="https://fonts.foodly.live/v1/fonts.css" />
+
+            <main style={{ fontFamily: "'FiraGO', sans-serif" }}>
+                <h1 style={{ fontWeight: 700 }}>Foodly App</h1>
+                <p>Shared brand font loaded from fonts.foodly.live.</p>
+            </main>
+        </>
+    );
+}
+```
 
 ### Laravel Blade
 
-Add the stylesheet in the main layout `<head>` and apply the relevant family where needed.
+```blade
+<head>
+    <link rel="preconnect" href="https://fonts.foodly.live" crossorigin>
+    <link rel="preload" href="https://fonts.foodly.live/v1/fonts/FiraGO/Roman/FiraGO-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="https://fonts.foodly.live/v1/fonts.css">
+</head>
+<body style="font-family: 'FiraGO', sans-serif;">
+    <h1 style="font-weight: 700;">Foodly Blade App</h1>
+    <p style="font-family: 'DejaVu Sans', sans-serif;">Helper text</p>
+</body>
+```
+
+### Recommended Font Mapping
+
+- `FiraGO` for body text, buttons, forms, headings, and general product UI
+- `DejaVu Sans` for fallback or secondary utility text
+- `Dachi the Lynx` for decorative titles and campaign-style labels only
 
 ## Versioning Strategy
 
@@ -204,3 +326,5 @@ This layout is ready for:
 - Icon fonts or sprite sheets
 - SVG logos and UI assets under `public/assets/`
 - Manifest-driven CSS generation from a build pipeline
+
+
