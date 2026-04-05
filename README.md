@@ -60,7 +60,7 @@ The current `v1` release exposes these families via [`public/v1/fonts.css`](./pu
 
 ## Key Files
 
-- [`nginx/nginx.conf`](./nginx/nginx.conf): Nginx server config
+- [`nginx/nginx.conf`](./nginx/nginx.conf): Nginx server config for `fonts.foodlyapp.ge`
 - [`public/v1/fonts.css`](./public/v1/fonts.css): generated `@font-face` rules for all current font families
 - [`examples/test.html`](./examples/test.html): browser smoke test
 - [`examples/react-app.tsx`](./examples/react-app.tsx): React usage example
@@ -79,13 +79,13 @@ The current `v1` release exposes these families via [`public/v1/fonts.css`](./pu
 ### Generic HTML
 
 ```html
-<link rel="stylesheet" href="https://your-font-host.example/v1/fonts.css">
+<link rel="stylesheet" href="https://fonts.foodlyapp.ge/v1/fonts.css">
 ```
 
 ### Preload Example
 
 ```html
-<link rel="preload" href="https://your-font-host.example/v1/fonts/FiraGO/Roman/FiraGO-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://fonts.foodlyapp.ge/v1/fonts/FiraGO/Roman/FiraGO-Regular.woff2" as="font" type="font/woff2" crossorigin>
 ```
 
 ### Basic CSS Usage
@@ -121,9 +121,9 @@ h3 {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://your-font-host.example" crossorigin>
-    <link rel="preload" href="https://your-font-host.example/v1/fonts/FiraGO/Roman/FiraGO-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="https://your-font-host.example/v1/fonts.css">
+    <link rel="preconnect" href="https://fonts.foodlyapp.ge" crossorigin>
+    <link rel="preload" href="https://fonts.foodlyapp.ge/v1/fonts/FiraGO/Roman/FiraGO-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="https://fonts.foodlyapp.ge/v1/fonts.css">
     <style>
         body { font-family: 'FiraGO', sans-serif; }
         .hero-title { font-weight: 700; }
@@ -146,19 +146,19 @@ import React from 'react';
 export function App() {
     return (
         <>
-            <link rel="preconnect" href="https://your-font-host.example" crossOrigin="anonymous" />
+            <link rel="preconnect" href="https://fonts.foodlyapp.ge" crossOrigin="anonymous" />
             <link
                 rel="preload"
-                href="https://your-font-host.example/v1/fonts/FiraGO/Roman/FiraGO-Regular.woff2"
+                href="https://fonts.foodlyapp.ge/v1/fonts/FiraGO/Roman/FiraGO-Regular.woff2"
                 as="font"
                 type="font/woff2"
                 crossOrigin="anonymous"
             />
-            <link rel="stylesheet" href="https://your-font-host.example/v1/fonts.css" />
+            <link rel="stylesheet" href="https://fonts.foodlyapp.ge/v1/fonts.css" />
 
             <main style={{ fontFamily: "'FiraGO', sans-serif" }}>
                 <h1 style={{ fontWeight: 700 }}>App</h1>
-                <p>Shared brand font loaded from the central font host.</p>
+                <p>Shared brand font loaded from fonts.foodlyapp.ge.</p>
             </main>
         </>
     );
@@ -169,9 +169,9 @@ export function App() {
 
 ```blade
 <head>
-    <link rel="preconnect" href="https://your-font-host.example" crossorigin>
-    <link rel="preload" href="https://your-font-host.example/v1/fonts/FiraGO/Roman/FiraGO-Regular.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="https://your-font-host.example/v1/fonts.css">
+    <link rel="preconnect" href="https://fonts.foodlyapp.ge" crossorigin>
+    <link rel="preload" href="https://fonts.foodlyapp.ge/v1/fonts/FiraGO/Roman/FiraGO-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="https://fonts.foodlyapp.ge/v1/fonts.css">
 </head>
 <body style="font-family: 'FiraGO', sans-serif;">
     <h1 style="font-weight: 700;">Blade App</h1>
@@ -217,3 +217,14 @@ This layout is ready for:
 - Icon fonts or sprite sheets
 - SVG logos and UI assets under `public/assets/`
 - Manifest-driven CSS generation from a build pipeline
+
+## Production Checklist
+
+- Forge site root: `/home/forge/fonts.foodlyapp.ge/current/public`
+- Forge custom domain and SSL: `fonts.foodlyapp.ge` with active Let's Encrypt certificate
+- Nginx font headers: `Access-Control-Allow-Origin "*"` and `Cross-Origin-Resource-Policy "cross-origin"`
+- Immutable cache for versioned assets: `Cache-Control: public, max-age=31536000, immutable`
+- Cloudflare DNS: `A` record for `fonts` pointing to the server IP
+- Cloudflare cache: purge after Nginx header changes so edge responses refresh
+- Release verification: confirm `https://fonts.foodlyapp.ge/`, `https://fonts.foodlyapp.ge/v1/fonts.css`, and one `.woff2` URL all return `200`
+- Legal review: keep license proof for each published font family, especially decorative fonts
