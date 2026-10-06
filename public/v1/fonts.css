@@ -1,8 +1,8 @@
 @font-face {
     font-family: 'FiraGO';
     src:
-        url('/v1/fonts/FiraGO/Roman/FiraGO-Regular.woff2') format('woff2'),
-        url('/v1/fonts/FiraGO/Roman/FiraGO-Regular.woff') format('woff');
+        url('./fonts/FiraGO/Roman/FiraGO-Regular.woff2') format('woff2'),
+        url('./fonts/FiraGO/Roman/FiraGO-Regular.woff') format('woff');
     font-style: normal;
     font-weight: 400;
     font-display: swap;
@@ -11,8 +11,8 @@
 @font-face {
     font-family: 'FiraGO';
     src:
-        url('/v1/fonts/FiraGO/Roman/FiraGO-Medium.woff2') format('woff2'),
-        url('/v1/fonts/FiraGO/Roman/FiraGO-Medium.woff') format('woff');
+        url('./fonts/FiraGO/Roman/FiraGO-Medium.woff2') format('woff2'),
+        url('./fonts/FiraGO/Roman/FiraGO-Medium.woff') format('woff');
     font-style: normal;
     font-weight: 500;
     font-display: swap;
@@ -21,8 +21,8 @@
 @font-face {
     font-family: 'FiraGO';
     src:
-        url('/v1/fonts/FiraGO/Roman/FiraGO-Bold.woff2') format('woff2'),
-        url('/v1/fonts/FiraGO/Roman/FiraGO-Bold.woff') format('woff');
+        url('./fonts/FiraGO/Roman/FiraGO-Bold.woff2') format('woff2'),
+        url('./fonts/FiraGO/Roman/FiraGO-Bold.woff') format('woff');
     font-style: normal;
     font-weight: 700;
     font-display: swap;
@@ -31,8 +31,8 @@
 @font-face {
     font-family: 'DejaVu Sans';
     src:
-        url('/v1/fonts/DejaVu-Sans/dejavu-sans.woff2') format('woff2'),
-        url('/v1/fonts/DejaVu-Sans/dejavu-sans.woff') format('woff');
+        url('./fonts/DejaVu-Sans/dejavu-sans.woff2') format('woff2'),
+        url('./fonts/DejaVu-Sans/dejavu-sans.woff') format('woff');
     font-style: normal;
     font-weight: 400;
     font-display: swap;
@@ -41,8 +41,8 @@
 @font-face {
     font-family: 'DejaVu Sans';
     src:
-        url('/v1/fonts/DejaVu-Sans/dejavu-sans-oblique.woff2') format('woff2'),
-        url('/v1/fonts/DejaVu-Sans/dejavu-sans-oblique.woff') format('woff');
+        url('./fonts/DejaVu-Sans/dejavu-sans-oblique.woff2') format('woff2'),
+        url('./fonts/DejaVu-Sans/dejavu-sans-oblique.woff') format('woff');
     font-style: italic;
     font-weight: 400;
     font-display: swap;
@@ -51,8 +51,8 @@
 @font-face {
     font-family: 'DejaVu Sans';
     src:
-        url('/v1/fonts/DejaVu-Sans/dejavu-sans-bold.woff2') format('woff2'),
-        url('/v1/fonts/DejaVu-Sans/dejavu-sans-bold.woff') format('woff');
+        url('./fonts/DejaVu-Sans/dejavu-sans-bold.woff2') format('woff2'),
+        url('./fonts/DejaVu-Sans/dejavu-sans-bold.woff') format('woff');
     font-style: normal;
     font-weight: 700;
     font-display: swap;
@@ -61,8 +61,8 @@
 @font-face {
     font-family: 'DejaVu Sans';
     src:
-        url('/v1/fonts/DejaVu-Sans/dejavu-sans-bold-oblique.woff2') format('woff2'),
-        url('/v1/fonts/DejaVu-Sans/dejavu-sans-bold-oblique.woff') format('woff');
+        url('./fonts/DejaVu-Sans/dejavu-sans-bold-oblique.woff2') format('woff2'),
+        url('./fonts/DejaVu-Sans/dejavu-sans-bold-oblique.woff') format('woff');
     font-style: italic;
     font-weight: 700;
     font-display: swap;
@@ -71,8 +71,8 @@
 @font-face {
     font-family: 'Dachi the Lynx';
     src:
-        url('/v1/fonts/Dachi-the-Lynx/Dachi-the-Lynx.woff2') format('woff2'),
-        url('/v1/fonts/Dachi-the-Lynx/Dachi-the-Lynx.woff') format('woff');
+        url('./fonts/Dachi-the-Lynx/Dachi-the-Lynx.woff2') format('woff2'),
+        url('./fonts/Dachi-the-Lynx/Dachi-the-Lynx.woff') format('woff');
     font-style: normal;
     font-weight: 400;
     font-display: swap;

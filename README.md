@@ -52,11 +52,10 @@ The current `v1` release exposes these families via [`public/v1/fonts.css`](./pu
 
 ## What This Setup Provides
 
-- Versioned asset delivery through `/v1`, `/v2`, and later versions
-- Cross-origin font loading
-- Long-term immutable caching for versioned assets
-- Static-only Nginx configuration
-- Ready path for multiple font families, icon sets, and SVG/logo assets
+- **Web CDN:** Versioned asset delivery through `/v1`, `/v2`, with long-term immutable caching and CORS headers
+- **Mobile Assets Hub:** Direct download links and integration setups for Mobile Apps (Flutter, React Native, Swift iOS, Kotlin Android)
+- **Interactive Developer Portal:** Live typography preview, one-click copy snippets, and download hub at `https://fonts.foodlyapp.ge`
+- **Static-only Nginx configuration:** Ultra-secure, fast, zero-runtime overhead
 
 ## Key Files
 

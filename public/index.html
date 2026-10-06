@@ -3,21 +3,25 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>FOODLY Fonts CDN</title>
-    <meta name="description" content="Centralized font delivery for FOODLY applications.">
-    <link rel="stylesheet" href="/v1/fonts.css">
+    <title>FOODLY Fonts — Brand Typography CDN & Assets</title>
+    <meta name="description" content="Centralized typography CDN and mobile asset hub for FOODLY applications.">
+    <link rel="stylesheet" href="./v1/fonts.css">
     <style>
         :root {
             color-scheme: light;
             --bg: #f6efe4;
-            --panel: rgba(255, 251, 244, 0.82);
+            --panel: rgba(255, 251, 244, 0.88);
             --panel-strong: #fff9f1;
             --text: #201813;
             --muted: #6f6258;
             --accent: #d35a22;
-            --accent-dark: #a84316;
+            --accent-hover: #b84b18;
+            --accent-light: rgba(211, 90, 34, 0.1);
             --line: rgba(32, 24, 19, 0.08);
-            --shadow: 0 30px 80px rgba(78, 47, 19, 0.12);
+            --shadow: 0 20px 60px rgba(78, 47, 19, 0.08);
+            --radius-lg: 20px;
+            --radius-md: 14px;
+            --radius-sm: 8px;
         }
 
         * {
@@ -32,11 +36,12 @@
             margin: 0;
             min-height: 100vh;
             color: var(--text);
-            font-family: 'FiraGO', "Segoe UI", sans-serif;
+            font-family: 'FiraGO', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background:
-                radial-gradient(circle at 15% 10%, rgba(237, 146, 91, 0.28), transparent 22%),
-                radial-gradient(circle at 85% 18%, rgba(255, 214, 171, 0.75), transparent 18%),
+                radial-gradient(circle at 15% 10%, rgba(237, 146, 91, 0.22), transparent 26%),
+                radial-gradient(circle at 85% 20%, rgba(255, 214, 171, 0.65), transparent 22%),
                 linear-gradient(135deg, #f4eadc 0%, #f8f3ec 46%, #f1e4d5 100%);
+            padding-bottom: 60px;
         }
 
         body::before {
@@ -45,50 +50,48 @@
             inset: 0;
             pointer-events: none;
             background:
-                linear-gradient(90deg, rgba(211, 90, 34, 0.045) 0, rgba(211, 90, 34, 0.045) 1px, transparent 1px, transparent 72px),
-                linear-gradient(rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.34));
-            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), transparent 82%);
+                linear-gradient(90deg, rgba(211, 90, 34, 0.035) 0, rgba(211, 90, 34, 0.035) 1px, transparent 1px, transparent 64px),
+                linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3));
+            mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), transparent 85%);
         }
 
         .shell {
-            width: min(980px, calc(100% - 24px));
+            width: min(1080px, calc(100% - 32px));
             margin: 0 auto;
-            padding: 12px 0 18px;
+            padding: 20px 0;
         }
 
         .topbar {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 12px;
-            margin-bottom: 8px;
+            gap: 16px;
+            margin-bottom: 20px;
         }
 
         .brand {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             font-weight: 700;
+            font-size: 1.15rem;
             letter-spacing: -0.02em;
         }
 
         .brand-mark {
             display: grid;
             place-items: center;
-            width: 34px;
-            height: 34px;
+            width: 38px;
+            height: 38px;
             border-radius: 12px;
-            color: #fff8f2;
             background: linear-gradient(135deg, var(--accent) 0%, #ee7a3a 100%);
-            box-shadow: 0 12px 30px rgba(211, 90, 34, 0.25);
-            font-size: 0.92rem;
+            box-shadow: 0 10px 24px rgba(211, 90, 34, 0.25);
         }
 
         .brand-mark img {
-            width: 18px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
             object-fit: contain;
-            display: block;
         }
 
         .brand small {
@@ -96,479 +99,1041 @@
             margin-top: 2px;
             color: var(--muted);
             font-weight: 400;
-            letter-spacing: 0;
+            font-size: 0.8rem;
         }
 
         .pill {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 8px 12px;
+            padding: 8px 14px;
             border: 1px solid var(--line);
             border-radius: 999px;
-            background: rgba(255, 252, 247, 0.78);
+            background: rgba(255, 252, 247, 0.85);
             color: var(--muted);
-            font-size: 0.86rem;
-            backdrop-filter: blur(16px);
+            font-size: 0.84rem;
+            backdrop-filter: blur(12px);
         }
 
         .status-dot {
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
             background: #2ea55f;
-            box-shadow: 0 0 0 6px rgba(46, 165, 95, 0.14);
+            box-shadow: 0 0 0 4px rgba(46, 165, 95, 0.15);
         }
 
-        .hero {
-            display: grid;
-            grid-template-columns: minmax(0, 1.3fr) minmax(260px, 0.7fr);
-            gap: 12px;
-            align-items: stretch;
-        }
-
-        .hero-card,
-        .side-card,
-        .family-card,
-        .footer-card {
+        .card {
             border: 1px solid var(--line);
-            border-radius: 20px;
+            border-radius: var(--radius-lg);
             background: var(--panel);
             box-shadow: var(--shadow);
             backdrop-filter: blur(18px);
         }
 
-        .hero-card {
-            position: relative;
-            overflow: hidden;
-            padding: 20px;
+        .hero {
+            display: grid;
+            grid-template-columns: 1.35fr 0.85fr;
+            gap: 16px;
+            align-items: stretch;
+            margin-bottom: 24px;
         }
 
-        .hero-card::after {
-            content: "";
-            position: absolute;
-            inset: auto -10% -22% auto;
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(211, 90, 34, 0.18) 0%, rgba(211, 90, 34, 0) 70%);
+        .hero-card {
+            padding: 28px;
+            position: relative;
+            overflow: hidden;
         }
 
         .eyebrow {
             display: inline-block;
-            margin-bottom: 10px;
-            padding: 6px 10px;
+            margin-bottom: 12px;
+            padding: 5px 10px;
             border-radius: 999px;
-            background: rgba(211, 90, 34, 0.09);
-            color: var(--accent-dark);
-            font-size: 0.78rem;
+            background: var(--accent-light);
+            color: var(--accent);
+            font-size: 0.76rem;
             font-weight: 700;
             letter-spacing: 0.06em;
             text-transform: uppercase;
         }
 
         h1 {
-            margin: 0;
-            max-width: 11ch;
-            font-size: clamp(1.55rem, 2.35vw, 2.55rem);
-            line-height: 0.95;
-            letter-spacing: -0.05em;
+            margin: 0 0 12px;
+            font-size: clamp(1.8rem, 2.5vw, 2.6rem);
+            line-height: 1.08;
+            letter-spacing: -0.04em;
         }
 
         .hero-copy {
-            margin: 10px 0 0;
-            max-width: 60ch;
+            margin: 0 0 20px;
             color: var(--muted);
-            font-size: clamp(0.88rem, 0.95vw, 0.98rem);
-            line-height: 1.48;
+            font-size: 0.95rem;
+            line-height: 1.55;
+            max-width: 54ch;
         }
 
         .action-row {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin-top: 10px;
+            margin-bottom: 24px;
         }
 
-        .action-row a,
-        .file-link {
+        .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 8px 12px;
+            gap: 8px;
+            padding: 9px 16px;
             border-radius: 12px;
-            text-decoration: none;
+            font-size: 0.88rem;
             font-weight: 600;
-            transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 180ms ease;
+            font-family: inherit;
         }
 
-        .action-row a:hover,
-        .file-link:hover {
+        .btn-primary {
+            color: #fff;
+            background: linear-gradient(135deg, var(--accent) 0%, #ed7a39 100%);
+            box-shadow: 0 10px 22px rgba(211, 90, 34, 0.22);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--accent-hover) 0%, #d86928 100%);
             transform: translateY(-1px);
         }
 
-        .button-primary {
-            color: #fff9f2;
-            background: linear-gradient(135deg, var(--accent) 0%, #ed7a39 100%);
-            box-shadow: 0 14px 30px rgba(211, 90, 34, 0.22);
+        .btn-secondary {
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.75);
+            border: 1px solid var(--line);
         }
 
-        .button-secondary,
-        .file-link {
-            color: var(--text);
-            background: rgba(255, 255, 255, 0.62);
-            border: 1px solid var(--line);
+        .btn-secondary:hover {
+            background: #fff;
+            transform: translateY(-1px);
+        }
+
+        .btn-sm {
+            padding: 6px 12px;
+            font-size: 0.8rem;
+            border-radius: 8px;
         }
 
         .metrics {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 10px;
-            margin-top: 10px;
         }
 
         .metric {
-            padding: 10px 12px;
-            border-radius: 18px;
-            background: rgba(255, 255, 255, 0.52);
-            border: 1px solid rgba(32, 24, 19, 0.06);
+            padding: 12px 14px;
+            border-radius: var(--radius-md);
+            background: rgba(255, 255, 255, 0.55);
+            border: 1px solid rgba(32, 24, 19, 0.05);
         }
 
         .metric strong {
             display: block;
-            margin-bottom: 6px;
-            font-size: 0.92rem;
-            letter-spacing: -0.03em;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+            color: var(--text);
         }
 
         .metric span {
+            font-size: 0.8rem;
             color: var(--muted);
-            font-size: 0.92rem;
         }
 
         .side-card {
+            padding: 24px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 14px;
-            gap: 10px;
-        }
-
-        .side-card h2,
-        .section-title {
-            margin: 0 0 12px;
-            font-size: 0.9rem;
-            letter-spacing: -0.03em;
+            gap: 16px;
         }
 
         .route-box {
-            padding: 10px 12px;
-            border-radius: 18px;
+            padding: 12px 14px;
+            border-radius: 12px;
             background: #201813;
             color: #fff8f2;
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
         }
 
         .route-box code {
-            color: inherit;
             font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
-            font-size: 0.8rem;
+            font-size: 0.82rem;
+            word-break: break-all;
+        }
+
+        .copy-icon-btn {
+            background: rgba(255, 255, 255, 0.12);
+            border: none;
+            color: #fff;
+            padding: 5px 8px;
+            border-radius: 6px;
+            font-size: 0.74rem;
+            cursor: pointer;
+            transition: background 150ms ease;
+            white-space: nowrap;
+        }
+
+        .copy-icon-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
         }
 
         .side-list {
             display: grid;
-            gap: 10px;
-            color: var(--muted);
-            line-height: 1.55;
+            gap: 8px;
         }
 
-        .side-list span {
-            display: block;
+        .side-list-item {
             padding: 10px 12px;
-            border-radius: 12px;
-            background: rgba(255, 255, 255, 0.58);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.55);
             border: 1px solid rgba(32, 24, 19, 0.05);
+            font-size: 0.82rem;
+            color: var(--muted);
+            line-height: 1.4;
         }
 
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 32px 0 16px;
+        }
+
+        .section-title {
+            margin: 0;
+            font-size: 1.25rem;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-badge {
+            font-size: 0.72rem;
+            padding: 3px 8px;
+            border-radius: 6px;
+            background: var(--accent-light);
+            color: var(--accent);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* Interactive Typography Playground */
         .family-grid {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 10px;
-            margin-top: 10px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
         }
 
         .family-card {
-            padding: 14px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .family-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 6px;
         }
 
         .family-card h3 {
-            margin: 0 0 8px;
-            font-size: 1.02rem;
-            letter-spacing: -0.03em;
+            margin: 0;
+            font-size: 1.15rem;
+            letter-spacing: -0.02em;
         }
 
-        .family-card p {
-            margin: 0 0 10px;
+        .family-desc {
+            margin: 0 0 14px;
             color: var(--muted);
-            line-height: 1.4;
+            font-size: 0.84rem;
+            line-height: 1.45;
         }
 
         .weights {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 8px;
+            gap: 6px;
+            margin-bottom: 14px;
         }
 
-        .weights span {
-            padding: 7px 10px;
-            border-radius: 999px;
-            background: rgba(211, 90, 34, 0.09);
-            color: var(--accent-dark);
-            font-size: 0.78rem;
+        .weight-tag {
+            padding: 4px 8px;
+            border-radius: 6px;
+            background: var(--accent-light);
+            color: var(--accent);
+            font-size: 0.72rem;
             font-weight: 700;
         }
 
-        .preview-ui {
-            font-family: 'FiraGO', sans-serif;
+        .font-preview-box {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(32, 24, 19, 0.06);
+            border-radius: var(--radius-md);
+            padding: 14px;
+            margin-bottom: 14px;
+            min-height: 80px;
         }
 
-        .preview-fallback {
-            font-family: 'DejaVu Sans', sans-serif;
+        .font-preview-box p {
+            margin: 0 0 6px;
+            font-size: 1.05rem;
+            line-height: 1.35;
         }
 
-        .preview-decorative {
-            font-family: 'Dachi the Lynx', cursive;
-            font-size: 1.2rem;
-            line-height: 1.2;
-        }
-
-        .footer-card {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) auto;
-            gap: 10px;
-            align-items: center;
-            margin-top: 10px;
-            padding: 14px 16px;
-        }
-
-        .footer-card p {
-            margin: 0;
-            color: var(--muted);
-            line-height: 1.7;
-        }
-
-        .usage-card {
-            margin-top: 10px;
-            padding: 14px 16px;
-            border: 1px solid var(--line);
-            border-radius: 20px;
-            background: var(--panel);
-            box-shadow: var(--shadow);
-            backdrop-filter: blur(18px);
-        }
-
-        .usage-card h2 {
-            margin: 0 0 10px;
-            font-size: 1rem;
-            letter-spacing: -0.03em;
-        }
-
-        .usage-grid {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 10px;
-        }
-
-        .usage-block {
-            padding: 12px;
-            border-radius: 14px;
-            background: rgba(255, 255, 255, 0.58);
-            border: 1px solid rgba(32, 24, 19, 0.05);
-        }
-
-        .usage-block strong {
+        .font-preview-box small {
             display: block;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-        }
-
-        .usage-block pre {
-            margin: 0;
-            white-space: pre-wrap;
-            word-break: break-word;
+            color: var(--muted);
             font-size: 0.78rem;
-            line-height: 1.55;
-            color: var(--text);
-            font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
         }
 
-        @media (max-width: 980px) {
+        .family-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        /* Integration Tabs Section */
+        .integration-card {
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .tab-nav {
+            display: flex;
+            gap: 8px;
+            border-bottom: 1px solid var(--line);
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-size: 0.86rem;
+            font-weight: 600;
+            color: var(--muted);
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 160ms ease;
+            white-space: nowrap;
+        }
+
+        .tab-btn:hover {
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .tab-btn.active {
+            background: var(--text);
+            color: #fff;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .code-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .code-block {
+            border-radius: var(--radius-md);
+            background: #201813;
+            color: #fff8f2;
+            overflow: hidden;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+        }
+
+        .code-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 14px;
+            background: rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #d1c4ba;
+        }
+
+        .code-block pre {
+            margin: 0;
+            padding: 14px;
+            font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+            font-size: 0.8rem;
+            line-height: 1.55;
+            overflow-x: auto;
+            color: #f7ede6;
+        }
+
+        /* Mobile Download Hub Section */
+        .mobile-hub {
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .mobile-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+        .mobile-box {
+            background: rgba(255, 255, 255, 0.65);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .mobile-box h4 {
+            margin: 0 0 6px;
+            font-size: 0.96rem;
+            letter-spacing: -0.02em;
+        }
+
+        .mobile-box p {
+            margin: 0 0 14px;
+            color: var(--muted);
+            font-size: 0.8rem;
+            line-height: 1.45;
+        }
+
+        .download-list {
+            display: grid;
+            gap: 6px;
+        }
+
+        .download-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 6px 10px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(32, 24, 19, 0.06);
+            font-size: 0.78rem;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: all 150ms ease;
+        }
+
+        .download-item:hover {
+            background: #fff;
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .download-item span.format {
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background: var(--accent-light);
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .footer-note {
+            text-align: center;
+            color: var(--muted);
+            font-size: 0.82rem;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 960px) {
             .hero,
             .family-grid,
-            .footer-card {
+            .code-grid,
+            .mobile-grid {
                 grid-template-columns: 1fr;
-            }
-
-            h1 {
-                max-width: none;
             }
         }
 
-        @media (max-width: 720px) {
-            body {
-                padding-bottom: 32px;
-            }
-
-            .shell {
-                width: min(100% - 24px, 1180px);
-                padding-top: 16px;
-            }
-
-            .topbar {
-                align-items: flex-start;
-                flex-direction: column;
-            }
-
-            .hero-card,
-            .side-card,
-            .family-card,
-            .footer-card {
-                border-radius: 22px;
-            }
-
-            .hero-card {
-                padding: 14px;
-            }
-
+        @media (max-width: 600px) {
             .metrics {
                 grid-template-columns: 1fr;
+            }
+            .topbar {
+                flex-direction: column;
+                align-items: flex-start;
             }
         }
     </style>
 </head>
 <body>
     <div class="shell">
+        <!-- Topbar -->
         <header class="topbar">
             <div class="brand">
-                <div class="brand-mark"><img src="https://res.cloudinary.com/dyd5jj9s2/image/upload/v1759842717/White-07_k9ofhy.svg" alt="FOODLY logo"></div>
+                <div class="brand-mark">
+                    <img src="https://res.cloudinary.com/dyd5jj9s2/image/upload/v1759842717/White-07_k9ofhy.svg" alt="FOODLY Logo">
+                </div>
                 <div>
-                    FOODLY Fonts
-                    <small>Self-hosted asset origin for product typography</small>
+                    FOODLY Fonts Hub
+                    <small>Official Brand Typography CDN & Asset Repository</small>
                 </div>
             </div>
             <div class="pill">
                 <span class="status-dot"></span>
-                Versioned static delivery
+                <span>CDN v1 Active &bull; Immutable Cache</span>
             </div>
         </header>
 
+        <!-- Hero Section -->
         <main class="hero">
-            <section class="hero-card">
+            <section class="card hero-card">
                 <span class="eyebrow">Brand Infrastructure</span>
-                <h1>Fonts that ship fast and stay consistent.</h1>
+                <h1>Uniform Typography for all FOODLY Products</h1>
                 <p class="hero-copy">
-                    Centralized delivery for FOODLY typography across React, Laravel, Vue, landing pages,
-                    and internal tools. Every release is versioned, cache-friendly, and safe to consume across domains.
+                    Centralized delivery for Web (B2C, B2B portals, admin tools) via ultra-fast CDN,
+                    and downloadable asset packages for Mobile Apps (iOS, Android, Flutter, React Native).
                 </p>
 
                 <div class="action-row">
-                    <a class="button-primary" href="/v1/fonts.css">Open fonts.css</a>
-                    <a class="button-secondary" href="/v1/fonts/FiraGO/Roman/FiraGO-Regular.woff2">Preview FiraGO Regular</a>
+                    <a class="btn btn-primary" href="./v1/fonts.css" target="_blank">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        Open fonts.css (Web)
+                    </a>
+                    <a class="btn btn-secondary" href="#mobile-downloads">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        Download for Mobile Apps
+                    </a>
                 </div>
 
                 <div class="metrics">
                     <div class="metric">
-                        <strong>3 families</strong>
-                        <span>FiraGO, DejaVu Sans, and Dachi the Lynx</span>
+                        <strong>3 Brand Families</strong>
+                        <span>FiraGO, DejaVu Sans, Dachi the Lynx</span>
                     </div>
                     <div class="metric">
-                        <strong>Immutable versioning</strong>
-                        <span>Long-lived caching for /v1, /v2, and future releases</span>
+                        <strong>Immutable CDN</strong>
+                        <span>1-Year Cache (31,536,000s) on /v1/</span>
                     </div>
                     <div class="metric">
-                        <strong>Cross-origin ready</strong>
-                        <span>CORS-enabled font responses for every FOODLY app</span>
+                        <strong>CORS & Fast Swap</strong>
+                        <span>font-display: swap & Cross-Origin</span>
                     </div>
                 </div>
             </section>
 
-            <aside class="side-card">
+            <aside class="card side-card">
                 <div>
-                    <h2>Primary entrypoint</h2>
+                    <h3 style="margin: 0 0 10px; font-size: 0.95rem; letter-spacing: -0.02em;">Web CDN Entrypoint</h3>
                     <div class="route-box">
-                        <code>https://fonts.foodlyapp.ge/v1/fonts.css</code>
+                        <code id="cdn-url">https://fonts.foodlyapp.ge/v1/fonts.css</code>
+                        <button class="copy-icon-btn" onclick="copyText('https://fonts.foodlyapp.ge/v1/fonts.css', this)">Copy</button>
                     </div>
                 </div>
 
                 <div>
-                    <h2>What this host does</h2>
+                    <h3 style="margin: 0 0 10px; font-size: 0.95rem; letter-spacing: -0.02em;">Platform Best Practices</h3>
                     <div class="side-list">
-                        <span>Serves versioned font assets with long-term cache headers</span>
-                        <span>Provides a single stylesheet contract across FOODLY products</span>
-                        <span>Keeps old versions online so apps can migrate safely</span>
+                        <div class="side-list-item">
+                            <strong>🌐 Web Apps:</strong> Use CDN <code>&lt;link&gt;</code> tag with preconnect for zero latency and global caching.
+                        </div>
+                        <div class="side-list-item">
+                            <strong>📱 Mobile Apps:</strong> Download font files and bundle inside app assets for offline-first resilience.
+                        </div>
                     </div>
                 </div>
             </aside>
         </main>
 
+        <!-- Font Families Preview -->
+        <div class="section-header">
+            <h2 class="section-title">
+                <span>Brand Font Families</span>
+                <span class="section-badge">Live Preview</span>
+            </h2>
+        </div>
+
         <section class="family-grid" aria-label="Available font families">
-            <article class="family-card">
-                <h3>FiraGO</h3>
-                <p>Primary brand typeface for UI, headings, navigation, and product text.</p>
-                <div class="weights">
-                    <span>400 Regular</span>
-                    <span>500 Medium</span>
-                    <span>700 Bold</span>
+            <!-- FiraGO -->
+            <article class="card family-card">
+                <div>
+                    <div class="family-header">
+                        <h3>FiraGO</h3>
+                        <span class="weight-tag">Primary UI</span>
+                    </div>
+                    <p class="family-desc">Main typeface for product UI, navigation, buttons, forms, and general content.</p>
+                    
+                    <div class="weights">
+                        <span class="weight-tag">400 Regular</span>
+                        <span class="weight-tag">500 Medium</span>
+                        <span class="weight-tag">700 Bold</span>
+                    </div>
+
+                    <div class="font-preview-box" style="font-family: 'FiraGO', sans-serif;">
+                        <p style="font-weight: 700;">გემრიელი საკვები სწრაფად</p>
+                        <small>FiraGO &bull; ქართული & ინგლისური სრული მხარდაჭერა</small>
+                    </div>
                 </div>
-                <div class="preview-ui">Reliable product typography for FOODLY experiences.</div>
+
+                <div class="family-actions">
+                    <a class="btn btn-secondary btn-sm" href="./v1/fonts/FiraGO/Roman/FiraGO-Regular.woff2" download>WOFF2 (400)</a>
+                    <a class="btn btn-secondary btn-sm" href="./v1/fonts/FiraGO/Roman/FiraGO-Bold.woff2" download>WOFF2 (700)</a>
+                </div>
             </article>
 
-            <article class="family-card">
-                <h3>DejaVu Sans</h3>
-                <p>Supportive utility family for fallback use cases and secondary text surfaces.</p>
-                <div class="weights">
-                    <span>400 Regular</span>
-                    <span>400 Italic</span>
-                    <span>700 Bold</span>
-                    <span>700 Bold Italic</span>
+            <!-- DejaVu Sans -->
+            <article class="card family-card">
+                <div>
+                    <div class="family-header">
+                        <h3>DejaVu Sans</h3>
+                        <span class="weight-tag">Secondary / Utility</span>
+                    </div>
+                    <p class="family-desc">Supportive family for fallback rendering, invoices, tables, and utility text.</p>
+                    
+                    <div class="weights">
+                        <span class="weight-tag">400 Regular</span>
+                        <span class="weight-tag">400 Italic</span>
+                        <span class="weight-tag">700 Bold</span>
+                    </div>
+
+                    <div class="font-preview-box" style="font-family: 'DejaVu Sans', sans-serif;">
+                        <p>Reliable fallback & clean utility copy</p>
+                        <small>DejaVu Sans &bull; Clear numerical & technical data</small>
+                    </div>
                 </div>
-                <div class="preview-fallback">Clean fallback rendering for helper copy and utility content.</div>
+
+                <div class="family-actions">
+                    <a class="btn btn-secondary btn-sm" href="./v1/fonts/DejaVu-Sans/dejavu-sans.woff2" download>WOFF2 (400)</a>
+                    <a class="btn btn-secondary btn-sm" href="./v1/fonts/DejaVu-Sans/dejavu-sans-bold.woff2" download>WOFF2 (700)</a>
+                </div>
             </article>
 
-            <article class="family-card">
-                <h3>Dachi the Lynx</h3>
-                <p>Decorative display face for campaigns, badges, and editorial accents.</p>
-                <div class="weights">
-                    <span>400 Regular</span>
+            <!-- Dachi the Lynx -->
+            <article class="card family-card">
+                <div>
+                    <div class="family-header">
+                        <h3>Dachi the Lynx</h3>
+                        <span class="weight-tag">Decorative</span>
+                    </div>
+                    <p class="family-desc">Display face for marketing campaigns, promotional badges, and creative titles.</p>
+                    
+                    <div class="weights">
+                        <span class="weight-tag">400 Regular</span>
+                    </div>
+
+                    <div class="font-preview-box" style="font-family: 'Dachi the Lynx', cursive;">
+                        <p style="font-size: 1.25rem;">სპეციალური შეთავაზება</p>
+                        <small>Dachi the Lynx &bull; Authentic handwritten feel</small>
+                    </div>
                 </div>
-                <div class="preview-decorative">Fresh seasonal headline</div>
+
+                <div class="family-actions">
+                    <a class="btn btn-secondary btn-sm" href="./v1/fonts/Dachi-the-Lynx/Dachi-the-Lynx.woff2" download>WOFF2 (Regular)</a>
+                </div>
             </article>
         </section>
 
-        <section class="usage-card">
-            <h2>Quick usage</h2>
-            <div class="usage-grid">
-                <div class="usage-block">
-                    <strong>1. Include stylesheet</strong>
-                    <pre>&lt;link rel="stylesheet" href="https://fonts.foodlyapp.ge/v1/fonts.css"&gt;</pre>
+        <!-- Developer Integration Guides (Web & Mobile) -->
+        <div class="section-header">
+            <h2 class="section-title">
+                <span>Developer Integration</span>
+                <span class="section-badge">Code Snippets</span>
+            </h2>
+        </div>
+
+        <section class="card integration-card">
+            <!-- Tabs -->
+            <div class="tab-nav">
+                <button class="tab-btn active" onclick="switchTab('html-tab', this)">HTML / Blade</button>
+                <button class="tab-btn" onclick="switchTab('react-tab', this)">React / Next.js</button>
+                <button class="tab-btn" onclick="switchTab('css-tab', this)">CSS & Tailwind</button>
+                <button class="tab-btn" onclick="switchTab('flutter-tab', this)">Flutter (Mobile)</button>
+                <button class="tab-btn" onclick="switchTab('rn-tab', this)">React Native (Mobile)</button>
+                <button class="tab-btn" onclick="switchTab('ios-android-tab', this)">iOS & Android Native</button>
+            </div>
+
+            <!-- HTML / Blade Tab -->
+            <div id="html-tab" class="tab-content active">
+                <div class="code-grid">
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>HTML &lt;head&gt; Link</span>
+                            <button class="copy-icon-btn" onclick="copyFromEl('code-html-link', this)">Copy</button>
+                        </div>
+                        <pre><code id="code-html-link">&lt;!-- Preconnect to CDN domain --&gt;
+&lt;link rel="preconnect" href="https://fonts.foodlyapp.ge" crossorigin&gt;
+
+&lt;!-- Preload primary font for instant render --&gt;
+&lt;link rel="preload" href="https://fonts.foodlyapp.ge/v1/fonts/FiraGO/Roman/FiraGO-Regular.woff2" as="font" type="font/woff2" crossorigin&gt;
+
+&lt;!-- Load font stylesheet --&gt;
+&lt;link rel="stylesheet" href="https://fonts.foodlyapp.ge/v1/fonts.css"&gt;</code></pre>
+                    </div>
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>Laravel Blade Layout</span>
+                            <button class="copy-icon-btn" onclick="copyFromEl('code-blade', this)">Copy</button>
+                        </div>
+                        <pre><code id="code-blade">&lt;head&gt;
+    &lt;link rel="preconnect" href="https://fonts.foodlyapp.ge" crossorigin&gt;
+    &lt;link rel="stylesheet" href="https://fonts.foodlyapp.ge/v1/fonts.css"&gt;
+&lt;/head&gt;
+&lt;body class="font-firago antialiased"&gt;
+    &lt;h1&gt;FOODLY B2B / B2C Portal&lt;/h1&gt;
+&lt;/body&gt;</code></pre>
+                    </div>
                 </div>
-                <div class="usage-block">
-                    <strong>2. Use in CSS</strong>
-                    <pre>body {
-    font-family: 'FiraGO', sans-serif;
-}</pre>
+            </div>
+
+            <!-- React / Next.js Tab -->
+            <div id="react-tab" class="tab-content">
+                <div class="code-grid">
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>Next.js App Router (app/layout.tsx)</span>
+                            <button class="copy-icon-btn" onclick="copyFromEl('code-nextjs', this)">Copy</button>
+                        </div>
+                        <pre><code id="code-nextjs">export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    &lt;html lang="ka"&gt;
+      &lt;head&gt;
+        &lt;link rel="preconnect" href="https://fonts.foodlyapp.ge" crossOrigin="anonymous" /&gt;
+        &lt;link rel="stylesheet" href="https://fonts.foodlyapp.ge/v1/fonts.css" /&gt;
+      &lt;/head&gt;
+      &lt;body style={{ fontFamily: "'FiraGO', sans-serif" }}&gt;
+        {children}
+      &lt;/body&gt;
+    &lt;/html&gt;
+  );
+}</code></pre>
+                    </div>
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>React (Vite / SPA) index.html</span>
+                            <button class="copy-icon-btn" onclick="copyFromEl('code-react-vite', this)">Copy</button>
+                        </div>
+                        <pre><code id="code-react-vite">&lt;!doctype html&gt;
+&lt;html lang="ka"&gt;
+  &lt;head&gt;
+    &lt;link rel="preconnect" href="https://fonts.foodlyapp.ge" crossorigin /&gt;
+    &lt;link rel="stylesheet" href="https://fonts.foodlyapp.ge/v1/fonts.css" /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id="root"&gt;&lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CSS & Tailwind Tab -->
+            <div id="css-tab" class="tab-content">
+                <div class="code-grid">
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>Vanilla CSS / Global Styles</span>
+                            <button class="copy-icon-btn" onclick="copyFromEl('code-css', this)">Copy</button>
+                        </div>
+                        <pre><code id="code-css">/* Import via CSS (Alternative to link tag) */
+@import url('https://fonts.foodlyapp.ge/v1/fonts.css');
+
+body {
+    font-family: 'FiraGO', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.heading-decorative {
+    font-family: 'Dachi the Lynx', cursive;
+}</code></pre>
+                    </div>
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>Tailwind CSS (tailwind.config.js)</span>
+                            <button class="copy-icon-btn" onclick="copyFromEl('code-tailwind', this)">Copy</button>
+                        </div>
+                        <pre><code id="code-tailwind">/** @type {import('tailwindcss').Config} */
+module.exports = {
+  theme: {
+    extend: {
+      fontFamily: {
+        firago: ['FiraGO', 'sans-serif'],
+        dejavu: ['DejaVu Sans', 'sans-serif'],
+        decorative: ['Dachi the Lynx', 'cursive'],
+      },
+    },
+  },
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flutter Tab -->
+            <div id="flutter-tab" class="tab-content">
+                <div class="code-grid">
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>pubspec.yaml (Flutter Fonts Setup)</span>
+                            <button class="copy-icon-btn" onclick="copyFromEl('code-flutter-pubspec', this)">Copy</button>
+                        </div>
+                        <pre><code id="code-flutter-pubspec">flutter:
+  fonts:
+    - family: FiraGO
+      fonts:
+        - asset: assets/fonts/FiraGO-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/FiraGO-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/FiraGO-Bold.ttf
+          weight: 700
+    - family: DachiTheLynx
+      fonts:
+        - asset: assets/fonts/Dachi-the-Lynx.ttf</code></pre>
+                    </div>
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>Dart Usage in Theme / TextStyle</span>
+                            <button class="copy-icon-btn" onclick="copyFromEl('code-flutter-dart', this)">Copy</button>
+                        </div>
+                        <pre><code id="code-flutter-dart">ThemeData(
+  fontFamily: 'FiraGO',
+  textTheme: const TextTheme(
+    headlineLarge: TextStyle(fontFamily: 'FiraGO', fontWeight: FontWeight.bold),
+    bodyMedium: TextStyle(fontFamily: 'FiraGO', fontWeight: FontWeight.normal),
+  ),
+);
+
+// In-Widget TextStyle:
+Text(
+  'Foodly App',
+  style: TextStyle(fontFamily: 'FiraGO', fontWeight: FontWeight.w700),
+);</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- React Native Tab -->
+            <div id="rn-tab" class="tab-content">
+                <div class="code-grid">
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>react-native.config.js</span>
+                            <button class="copy-icon-btn" onclick="copyFromEl('code-rn-config', this)">Copy</button>
+                        </div>
+                        <pre><code id="code-rn-config">module.exports = {
+  project: {
+    ios: {},
+    android: {},
+  },
+  assets: ['./assets/fonts/'],
+};
+
+// Then run: npx react-native-asset (or npx react-native link)</code></pre>
+                    </div>
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>StyleSheet Usage</span>
+                            <button class="copy-icon-btn" onclick="copyFromEl('code-rn-style', this)">Copy</button>
+                        </div>
+                        <pre><code id="code-rn-style">import { StyleSheet, Text } from 'react-native';
+
+const styles = StyleSheet.create({
+  title: {
+    fontFamily: 'FiraGO-Bold',
+    fontSize: 20,
+  },
+  text: {
+    fontFamily: 'FiraGO-Regular',
+    fontSize: 14,
+  },
+});</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- iOS & Android Native Tab -->
+            <div id="ios-android-tab" class="tab-content">
+                <div class="code-grid">
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>iOS (Info.plist) & SwiftUI</span>
+                            <button class="copy-icon-btn" onclick="copyFromEl('code-ios', this)">Copy</button>
+                        </div>
+                        <pre><code id="code-ios">&lt;!-- Add to Info.plist --&gt;
+&lt;key&gt;UIAppFonts&lt;/key&gt;
+&lt;array&gt;
+    &lt;string&gt;FiraGO-Regular.ttf&lt;/string&gt;
+    &lt;string&gt;FiraGO-Medium.ttf&lt;/string&gt;
+    &lt;string&gt;FiraGO-Bold.ttf&lt;/string&gt;
+&lt;/array&gt;
+
+// SwiftUI Usage:
+Text("Foodly")
+    .font(.custom("FiraGO-Bold", size: 22))</code></pre>
+                    </div>
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>Android (res/font/firago.xml)</span>
+                            <button class="copy-icon-btn" onclick="copyFromEl('code-android', this)">Copy</button>
+                        </div>
+                        <pre><code id="code-android">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;font-family xmlns:app="http://schemas.android.com/apk/res-auto"&gt;
+    &lt;font app:fontStyle="normal" app:fontWeight="400" app:font="@font/firago_regular" /&gt;
+    &lt;font app:fontStyle="normal" app:fontWeight="700" app:font="@font/firago_bold" /&gt;
+&lt;/font-family&gt;
+
+&lt;!-- In XML: android:fontFamily="@font/firago" --&gt;</code></pre>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- Mobile Asset Download Center -->
+        <div class="section-header" id="mobile-downloads">
+            <h2 class="section-title">
+                <span>Mobile App Font Downloads</span>
+                <span class="section-badge">Asset Packages</span>
+            </h2>
+        </div>
+
+        <section class="card mobile-hub">
+            <p style="margin: 0 0 16px; color: var(--muted); font-size: 0.88rem; line-height: 1.5;">
+                Direct download links for embedding into Customer & Partner Mobile Apps (iOS, Android, Flutter, React Native).
+            </p>
+
+            <div class="mobile-grid">
+                <!-- FiraGO Downloads -->
+                <div class="mobile-box">
+                    <div>
+                        <h4>FiraGO (Mobile Core)</h4>
+                        <p>Essential weights for Flutter / React Native UI interfaces.</p>
+                    </div>
+                    <div class="download-list">
+                        <a class="download-item" href="./v1/fonts/FiraGO/Roman/FiraGO-Regular.woff2" download="FiraGO-Regular.woff2">
+                            <span>FiraGO Regular (400)</span>
+                            <span class="format">WOFF2</span>
+                        </a>
+                        <a class="download-item" href="./v1/fonts/FiraGO/Roman/FiraGO-Medium.woff2" download="FiraGO-Medium.woff2">
+                            <span>FiraGO Medium (500)</span>
+                            <span class="format">WOFF2</span>
+                        </a>
+                        <a class="download-item" href="./v1/fonts/FiraGO/Roman/FiraGO-Bold.woff2" download="FiraGO-Bold.woff2">
+                            <span>FiraGO Bold (700)</span>
+                            <span class="format">WOFF2</span>
+                        </a>
+                        <a class="download-item" href="./v1/fonts/FiraGO/Roman/FiraGO-Regular.woff" download="FiraGO-Regular.woff">
+                            <span>FiraGO Regular (Fallback)</span>
+                            <span class="format">WOFF</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- DejaVu Sans Downloads -->
+                <div class="mobile-box">
+                    <div>
+                        <h4>DejaVu Sans</h4>
+                        <p>Technical and fallback typography package.</p>
+                    </div>
+                    <div class="download-list">
+                        <a class="download-item" href="./v1/fonts/DejaVu-Sans/dejavu-sans.woff2" download="dejavu-sans.woff2">
+                            <span>DejaVu Regular (400)</span>
+                            <span class="format">WOFF2</span>
+                        </a>
+                        <a class="download-item" href="./v1/fonts/DejaVu-Sans/dejavu-sans-bold.woff2" download="dejavu-sans-bold.woff2">
+                            <span>DejaVu Bold (700)</span>
+                            <span class="format">WOFF2</span>
+                        </a>
+                        <a class="download-item" href="./v1/fonts/DejaVu-Sans/dejavu-sans-oblique.woff2" download="dejavu-sans-oblique.woff2">
+                            <span>DejaVu Italic (400)</span>
+                            <span class="format">WOFF2</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Dachi the Lynx Downloads -->
+                <div class="mobile-box">
+                    <div>
+                        <h4>Dachi the Lynx</h4>
+                        <p>Promotional display font for special events & campaigns.</p>
+                    </div>
+                    <div class="download-list">
+                        <a class="download-item" href="./v1/fonts/Dachi-the-Lynx/Dachi-the-Lynx.woff2" download="Dachi-the-Lynx.woff2">
+                            <span>Dachi the Lynx Regular</span>
+                            <span class="format">WOFF2</span>
+                        </a>
+                        <a class="download-item" href="./v1/fonts/Dachi-the-Lynx/Dachi-the-Lynx.woff" download="Dachi-the-Lynx.woff">
+                            <span>Dachi the Lynx Regular</span>
+                            <span class="format">WOFF</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer-note">
+            <p>&copy; 2026 FOODLY App LLC &bull; Fonts & Design Assets Infrastructure &bull; All fonts served with immutable CORS cache</p>
+        </footer>
     </div>
+
+    <script>
+        function switchTab(tabId, btn) {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            
+            btn.classList.add('active');
+            const target = document.getElementById(tabId);
+            if (target) {
+                target.classList.add('active');
+            }
+        }
+
+        function copyText(text, btn) {
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = btn.innerText;
+                btn.innerText = 'Copied!';
+                btn.style.background = '#2ea55f';
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.background = '';
+                }, 2000);
+            });
+        }
+
+        function copyFromEl(elId, btn) {
+            const el = document.getElementById(elId);
+            if (el) {
+                copyText(el.innerText, btn);
+            }
+        }
+    </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
